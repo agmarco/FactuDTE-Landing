@@ -280,6 +280,20 @@ function App() {
                       </div>
                     </div>
                   </div>
+                  {/* Contact Button */}
+                  <div className="p-5 pt-0">
+                    <a
+                      href="mailto:marcoaguirreg@gmail.com?subject=Consulta sobre Oferta de Pioneros - FactuDTE"
+                      className="block w-full bg-blue-600 text-white text-center py-3 px-4 rounded-lg hover:bg-blue-700 transition font-semibold shadow-md"
+                    >
+                      <div className="flex items-center justify-center gap-2">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <span>Contactar para Reservar</span>
+                      </div>
+                    </a>
+                  </div>
                 </div>
 
                 {/* Right side - Pricing Details */}
@@ -495,12 +509,20 @@ function App() {
           <p className="text-xl text-primary-100 mb-8">
             Unite a los primeros 50 usuarios y empezá a crear facturas conformes al gobierno hoy.
           </p>
-          <a
-            href="https://app.factudte.com"
-            className="inline-block bg-white text-primary-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition font-bold text-lg"
-          >
-            Comenzar Ahora
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://app.factudte.com"
+              className="inline-block bg-white text-primary-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition font-bold text-lg shadow-md"
+            >
+              Comenzar Ahora
+            </a>
+            <a
+              href="mailto:marcoaguirreg@gmail.com?subject=Consulta - FactuDTE"
+              className="inline-block bg-primary-700 text-white px-8 py-4 rounded-lg hover:bg-primary-800 transition font-bold text-lg border-2 border-white shadow-md"
+            >
+              Contactar
+            </a>
+          </div>
           <p className="mt-6 text-primary-100">
             Sin tarjeta de crédito • Configuración en minutos • Cancelá en cualquier momento
           </p>
@@ -513,9 +535,12 @@ function App() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <h3 className="text-white font-bold text-xl mb-4">FactuDTE</h3>
-              <p className="text-sm">
+              <p className="text-sm mb-4">
                 La forma más simple de administrar facturas electrónicas en El Salvador.
               </p>
+              <a href="mailto:marcoaguirreg@gmail.com" className="text-sm text-blue-400 hover:text-blue-300 transition">
+                marcoaguirreg@gmail.com
+              </a>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Producto</h4>
@@ -529,8 +554,8 @@ function App() {
               <h4 className="text-white font-semibold mb-4">Empresa</h4>
               <ul className="space-y-2 text-sm">
                 <li><a href="#" className="hover:text-white transition">Acerca de</a></li>
-                <li><a href="#" className="hover:text-white transition">Contacto</a></li>
-                <li><a href="#" className="hover:text-white transition">Soporte</a></li>
+                <li><a href="mailto:marcoaguirreg@gmail.com" className="hover:text-white transition">Contacto</a></li>
+                <li><a href="mailto:marcoaguirreg@gmail.com?subject=Soporte - FactuDTE" className="hover:text-white transition">Soporte</a></li>
               </ul>
             </div>
             <div>
