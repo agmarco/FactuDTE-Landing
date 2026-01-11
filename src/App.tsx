@@ -350,7 +350,8 @@ function App() {
             {/* Contact Button */}
             <div className="max-w-md mx-auto mt-8">
               <a
-                href="mailto:marcoaguirreg@gmail.com?subject=Consulta sobre Oferta de Pioneros - FactuDTE"
+                href="https://mail.google.com/mail/?view=cm&to=marcoaguirreg@gmail.com&su=Consulta sobre Oferta de Pioneros - FactuDTE"
+                target="_blank"
                 className="block w-full bg-blue-600 text-white text-center py-3 px-4 rounded-lg hover:bg-blue-700 transition font-semibold shadow-md"
               >
                 <div className="flex items-center justify-center gap-2">
@@ -518,7 +519,8 @@ function App() {
               Comenzar Ahora
             </a>
             <a
-              href="mailto:marcoaguirreg@gmail.com?subject=Consulta - FactuDTE"
+              href="https://mail.google.com/mail/?view=cm&to=marcoaguirreg@gmail.com&su=Consulta - FactuDTE"
+              target="_blank"
               className="inline-block bg-primary-700 text-white px-8 py-4 rounded-lg hover:bg-primary-800 transition font-bold text-lg border-2 border-white shadow-md"
             >
               Contactar
@@ -539,7 +541,7 @@ function App() {
               <p className="text-sm mb-4">
                 La forma más simple de administrar facturas electrónicas en El Salvador.
               </p>
-              <a href="mailto:marcoaguirreg@gmail.com" className="text-sm text-blue-400 hover:text-blue-300 transition">
+              <a href="https://mail.google.com/mail/?view=cm&to=marcoaguirreg@gmail.com" target="_blank" className="text-sm text-blue-400 hover:text-blue-300 transition">
                 marcoaguirreg@gmail.com
               </a>
             </div>
@@ -555,8 +557,8 @@ function App() {
               <h4 className="text-white font-semibold mb-4">Empresa</h4>
               <ul className="space-y-2 text-sm">
                 <li><a href="#" className="hover:text-white transition">Acerca de</a></li>
-                <li><a href="mailto:marcoaguirreg@gmail.com" className="hover:text-white transition">Contacto</a></li>
-                <li><a href="mailto:marcoaguirreg@gmail.com?subject=Soporte - FactuDTE" className="hover:text-white transition">Soporte</a></li>
+                <li><a href="https://mail.google.com/mail/?view=cm&to=marcoaguirreg@gmail.com" target="_blank" className="hover:text-white transition">Contacto</a></li>
+                <li><a href="https://mail.google.com/mail/?view=cm&to=marcoaguirreg@gmail.com&su=Soporte - FactuDTE" target="_blank" className="hover:text-white transition">Soporte</a></li>
               </ul>
             </div>
             <div>
