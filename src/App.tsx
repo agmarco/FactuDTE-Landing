@@ -175,11 +175,11 @@ function App() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-white">
+      <section id="pricing" className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Oferta Especial para Pioneros</h2>
-            <p className="text-xl text-gray-600 mb-8">Unite a los primeros 50 usuarios y asegurá tu precio especial</p>
+            <p className="text-xl text-gray-600 mb-6">Unite a los primeros 50 usuarios y asegurá tu precio especial</p>
 
             {/* Visual indicator - Spots filling up */}
             <div className="max-w-md mx-auto">
@@ -280,20 +280,6 @@ function App() {
                       </div>
                     </div>
                   </div>
-                  {/* Contact Button */}
-                  <div className="p-5 pt-0">
-                    <a
-                      href="mailto:marcoaguirreg@gmail.com?subject=Consulta sobre Oferta de Pioneros - FactuDTE"
-                      className="block w-full bg-blue-600 text-white text-center py-3 px-4 rounded-lg hover:bg-blue-700 transition font-semibold shadow-md"
-                    >
-                      <div className="flex items-center justify-center gap-2">
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                        <span>Contactar para Reservar</span>
-                      </div>
-                    </a>
-                  </div>
                 </div>
 
                 {/* Right side - Pricing Details */}
@@ -360,6 +346,21 @@ function App() {
             <p className="text-center mt-6 text-gray-500 text-sm">
               Precio regular: $35/mes después del período de oferta pionera
             </p>
+
+            {/* Contact Button */}
+            <div className="max-w-md mx-auto mt-8">
+              <a
+                href="mailto:marcoaguirreg@gmail.com?subject=Consulta sobre Oferta de Pioneros - FactuDTE"
+                className="block w-full bg-blue-600 text-white text-center py-3 px-4 rounded-lg hover:bg-blue-700 transition font-semibold shadow-md"
+              >
+                <div className="flex items-center justify-center gap-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span>Contactar para Reservar</span>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </section>
