@@ -521,7 +521,8 @@ function App() {
             <a
               href="https://mail.google.com/mail/?view=cm&to=marcoaguirreg@gmail.com&su=Consulta - FactuDTE"
               target="_blank"
-              className="inline-block bg-primary-700 text-white px-8 py-4 rounded-lg hover:bg-primary-800 transition font-bold text-lg border-2 border-white shadow-md"
+              style={{ backgroundColor: '#2563eb', color: 'white', border: '2px solid #2563eb', boxShadow: '0 4px 16px 0 rgba(37,99,235,0.10)' }}
+              className="inline-block px-8 py-4 rounded-lg font-bold text-lg transition"
             >
               Contactar
             </a>
