@@ -3,9 +3,16 @@ import dashboardImg from './assets/dashboard.png'
 import invoiceCreationImg from './assets/invoice-creation.png'
 import historialImg from './assets/historial.png'
 import reportesImg from './assets/reportes.png'
+import correoContadorImg from './assets/correo-contador-reporte.png'
+import opcionesImg from './assets/opciones.png'
+import opciones2Img from './assets/opciones2.png'
+import printoutTicketImg from './assets/printout-ticket.png'
+import printoutCompletaImg from './assets/printout-completa.png'
+import respaldoNubeImg from './assets/respaldo en la nuble.png'
 
 function App() {
   const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   // Close modal on ESC key
   useEffect(() => {
@@ -40,15 +47,38 @@ function App() {
               <a href="#pricing" className="text-gray-700 hover:text-primary-600 transition">Precios</a>
               <a href="#screenshots" className="text-gray-700 hover:text-primary-600 transition">Capturas</a>
             </div>
-            <div>
+            <div className="flex items-center gap-3">
               <a
                 href="https://app.factudte.com"
-                className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition font-medium"
+                className="bg-primary-600 text-white px-4 sm:px-6 py-2 rounded-lg hover:bg-primary-700 transition font-medium text-sm sm:text-base"
               >
                 Comenzar
               </a>
+              <button
+                className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition"
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Menú"
+              >
+                {menuOpen ? (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
+              </button>
             </div>
           </div>
+          {/* Mobile menu */}
+          {menuOpen && (
+            <div className="md:hidden border-t border-gray-100 py-3 space-y-1">
+              <a href="#features" onClick={() => setMenuOpen(false)} className="block px-4 py-2 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition">Características</a>
+              <a href="#pricing" onClick={() => setMenuOpen(false)} className="block px-4 py-2 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition">Precios</a>
+              <a href="#screenshots" onClick={() => setMenuOpen(false)} className="block px-4 py-2 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition">Capturas</a>
+            </div>
+          )}
         </div>
       </nav>
 
@@ -56,10 +86,10 @@ function App() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               De Cero a <span className="text-primary-600">DTE Listo</span> en Menos de una Hora
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-lg sm:text-xl text-gray-600 mb-8">
               La forma más simple de crear y administrar facturas electrónicas en El Salvador.
               Cumple con los requisitos gubernamentales, fácil de usar y hecho para todos.
             </p>
@@ -88,8 +118,8 @@ function App() {
       <section id="features" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Simple. Práctico. Poderoso.</h2>
-            <p className="text-xl text-gray-600">Todo lo que necesitás para administrar facturas, nada que no.</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">Simple. Práctico. Poderoso.</h2>
+            <p className="text-lg sm:text-xl text-gray-600">Todo lo que necesitás para administrar facturas, nada que no.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -178,8 +208,8 @@ function App() {
       <section id="pricing" className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Oferta Especial para Pioneros</h2>
-            <p className="text-xl text-gray-600 mb-6">Unite a los primeros 50 usuarios y asegurá tu precio especial</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">Oferta Especial para Pioneros</h2>
+            <p className="text-lg sm:text-xl text-gray-600 mb-6">Unite a los primeros 50 usuarios y asegurá tu precio especial</p>
 
             {/* Visual indicator - Spots filling up */}
             <div className="max-w-md mx-auto">
@@ -213,12 +243,11 @@ function App() {
             </div>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto relative">
+            <div className="absolute -top-3 right-4 sm:-top-4 sm:-right-2 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold transform rotate-12 z-10">
+              Oferta Limitada
+            </div>
             <div className="bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl shadow-xl overflow-hidden">
-              <div className="absolute top-0 right-0 -mt-4 -mr-4 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-bold transform rotate-12 z-10">
-                Oferta Limitada
-              </div>
-
               <div className="grid md:grid-cols-2 gap-0">
                 {/* Left side - Visual Benefits */}
                 <div className="bg-white p-5 pb-0">
@@ -370,8 +399,8 @@ function App() {
       <section id="screenshots" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Mirá Cómo Funciona</h2>
-            <p className="text-xl text-gray-600">Una interfaz limpia e intuitiva diseñada para la eficiencia</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">Mirá Cómo Funciona</h2>
+            <p className="text-lg sm:text-xl text-gray-600">Una interfaz limpia e intuitiva diseñada para la eficiencia</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -498,6 +527,192 @@ function App() {
                 <p className="text-gray-600">Reportes completos para contabilidad y análisis empresarial.</p>
               </div>
             </div>
+
+            {/* Screenshot 5 - Correo Contador */}
+            <div className="group">
+              <div
+                className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                onClick={() => setSelectedImage({ src: correoContadorImg, alt: 'Reporte para Contador en FactuDTE' })}
+              >
+                <div className="bg-gray-100 px-4 py-3 border-b border-gray-200 flex items-center gap-2">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                  <div className="flex-1 mx-4">
+                    <div className="bg-white rounded px-3 py-1 text-xs text-gray-500 text-center">app.factudte.com</div>
+                  </div>
+                </div>
+                <div className="aspect-video overflow-hidden bg-white relative group-hover:bg-gray-50">
+                  <img src={correoContadorImg} alt="Reporte para Contador en FactuDTE" className="w-full h-full object-contain" />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/10 transition-all">
+                    <svg className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4">
+                <h3 className="font-semibold text-lg text-gray-900 mb-2">Correo para Contador</h3>
+                <p className="text-gray-600">Generá reportes personalizables para tu contador en cualquier momento, con datos configurables y hoja de Excel adjunta.</p>
+              </div>
+            </div>
+
+            {/* Screenshot 6 - Opciones 1 */}
+            <div className="group">
+              <div
+                className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                onClick={() => setSelectedImage({ src: opcionesImg, alt: 'Opciones Configurables en FactuDTE' })}
+              >
+                <div className="bg-gray-100 px-4 py-3 border-b border-gray-200 flex items-center gap-2">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                  <div className="flex-1 mx-4">
+                    <div className="bg-white rounded px-3 py-1 text-xs text-gray-500 text-center">app.factudte.com</div>
+                  </div>
+                </div>
+                <div className="aspect-video overflow-hidden bg-white relative group-hover:bg-gray-50">
+                  <img src={opcionesImg} alt="Opciones Configurables en FactuDTE" className="w-full h-full object-contain" />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/10 transition-all">
+                    <svg className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4">
+                <h3 className="font-semibold text-lg text-gray-900 mb-2">Opciones Configurables</h3>
+                <p className="text-gray-600">Personalizá la aplicación a tu medida con múltiples opciones de configuración para adaptarla a tu negocio.</p>
+              </div>
+            </div>
+
+            {/* Screenshot 7 - Opciones 2 */}
+            <div className="group">
+              <div
+                className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                onClick={() => setSelectedImage({ src: opciones2Img, alt: 'Más Opciones Configurables en FactuDTE' })}
+              >
+                <div className="bg-gray-100 px-4 py-3 border-b border-gray-200 flex items-center gap-2">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                  <div className="flex-1 mx-4">
+                    <div className="bg-white rounded px-3 py-1 text-xs text-gray-500 text-center">app.factudte.com</div>
+                  </div>
+                </div>
+                <div className="aspect-video overflow-hidden bg-white relative group-hover:bg-gray-50">
+                  <img src={opciones2Img} alt="Más Opciones Configurables en FactuDTE" className="w-full h-full object-contain" />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/10 transition-all">
+                    <svg className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4">
+                <h3 className="font-semibold text-lg text-gray-900 mb-2">Más Configuraciones</h3>
+                <p className="text-gray-600">Ajustes avanzados para control total sobre el comportamiento de la aplicación y preferencias de usuario.</p>
+              </div>
+            </div>
+
+            {/* Screenshot 8 - Printout Ticket */}
+            <div className="group">
+              <div
+                className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                onClick={() => setSelectedImage({ src: printoutTicketImg, alt: 'Impresión Ticket en FactuDTE' })}
+              >
+                <div className="bg-gray-100 px-4 py-3 border-b border-gray-200 flex items-center gap-2">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                  <div className="flex-1 mx-4">
+                    <div className="bg-white rounded px-3 py-1 text-xs text-gray-500 text-center">app.factudte.com</div>
+                  </div>
+                </div>
+                <div className="aspect-video overflow-hidden bg-white relative group-hover:bg-gray-50">
+                  <img src={printoutTicketImg} alt="Impresión Ticket en FactuDTE" className="w-full h-full object-contain" />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/10 transition-all">
+                    <svg className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4">
+                <h3 className="font-semibold text-lg text-gray-900 mb-2">Impresión Ticket</h3>
+                <p className="text-gray-600">Imprimí facturas en formato ticket con impresoras térmicas de punto de venta.</p>
+              </div>
+            </div>
+
+            {/* Screenshot 9 - Printout Completa */}
+            <div className="group">
+              <div
+                className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                onClick={() => setSelectedImage({ src: printoutCompletaImg, alt: 'Impresión Completa en FactuDTE' })}
+              >
+                <div className="bg-gray-100 px-4 py-3 border-b border-gray-200 flex items-center gap-2">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                  <div className="flex-1 mx-4">
+                    <div className="bg-white rounded px-3 py-1 text-xs text-gray-500 text-center">app.factudte.com</div>
+                  </div>
+                </div>
+                <div className="aspect-video overflow-hidden bg-white relative group-hover:bg-gray-50">
+                  <img src={printoutCompletaImg} alt="Impresión Completa en FactuDTE" className="w-full h-full object-contain" />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/10 transition-all">
+                    <svg className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4">
+                <h3 className="font-semibold text-lg text-gray-900 mb-2">Impresión Completa</h3>
+                <p className="text-gray-600">Imprimí en impresoras regulares sin costo adicional (la competencia cobra extra). Guardá como PDF o enviá por correo en cualquier momento.</p>
+              </div>
+            </div>
+
+            {/* Screenshot 10 - Respaldo en la Nube */}
+            <div className="group">
+              <div
+                className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                onClick={() => setSelectedImage({ src: respaldoNubeImg, alt: 'Respaldo en la Nube en FactuDTE' })}
+              >
+                <div className="bg-gray-100 px-4 py-3 border-b border-gray-200 flex items-center gap-2">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                  <div className="flex-1 mx-4">
+                    <div className="bg-white rounded px-3 py-1 text-xs text-gray-500 text-center">app.factudte.com</div>
+                  </div>
+                </div>
+                <div className="aspect-video overflow-hidden bg-white relative group-hover:bg-gray-50">
+                  <img src={respaldoNubeImg} alt="Respaldo en la Nube en FactuDTE" className="w-full h-full object-contain" />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/10 transition-all">
+                    <svg className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4">
+                <h3 className="font-semibold text-lg text-gray-900 mb-2">Respaldo en la Nube</h3>
+                <p className="text-gray-600">Opción única de respaldo en la nube para cumplir con la ley que requiere guardar facturas por al menos 2 años.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -505,10 +720,10 @@ function App() {
       {/* CTA Section */}
       <section className="py-20 bg-primary-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
             ¿Listo para Simplificar tu Facturación?
           </h2>
-          <p className="text-xl text-primary-100 mb-8">
+          <p className="text-lg sm:text-xl text-primary-100 mb-8">
             Unite a los primeros 50 usuarios y empezá a crear facturas conformes al gobierno hoy.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -536,7 +751,7 @@ function App() {
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
               <h3 className="text-white font-bold text-xl mb-4">FactuDTE</h3>
               <p className="text-sm mb-4">
@@ -591,11 +806,11 @@ function App() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <div className="max-w-7xl max-h-[90vh] w-full" onClick={(e) => e.stopPropagation()}>
+          <div className="flex items-center justify-center w-full h-full" onClick={(e) => e.stopPropagation()}>
             <img
               src={selectedImage.src}
               alt={selectedImage.alt}
-              className="w-full h-full object-contain rounded-lg shadow-2xl"
+              className="max-w-[95vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
             />
           </div>
         </div>
